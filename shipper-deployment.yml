@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: shipper-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: shipper
+    spec:
+      containers:
+      - name: shipper
+        image: huy182014/shipper
+        ports:
+        - name: http-port
+          containerPort: 8083            
+

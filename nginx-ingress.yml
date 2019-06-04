@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-world-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.org/ssl-services: "hello-world-svc"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /test/
+            backend: 
+              serviceName: shipper-service
+              servicePort:  30001
